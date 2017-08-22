@@ -16,6 +16,13 @@
 @endsection
 
 @section('content')
+  <a class="button is-warning" href="{{ route('markets.edit', $market) }}">EDIT</a>
+  <form action="{{ route('markets.destroy', $market) }}" method="post" style="display: inline;">
+    {{ method_field('delete') }}
+    {{ csrf_field() }}
+    <button class="button is-danger">DELETE</button>
+  </form>
+  <hr>
   <div class="card">
     <div class="card-image">
       <figure class="image is-4by3">

@@ -17,6 +17,7 @@
 
 @section('content')
   <form action="{{ route('markets.store') }}" method="post">
+    {{ csrf_field() }}
     <div class="field">
       <label for="name" class="label">MARKET NAME</label>
       <div class="control">

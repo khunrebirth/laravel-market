@@ -1,5 +1,5 @@
 <p align="center">
-<img src="screenshot/new_screenshot.gif.gif"></a>
+<img src="screenshot/new_screenshot.gif"></a>
 </p>
 
 # Laravel 5.4 Market

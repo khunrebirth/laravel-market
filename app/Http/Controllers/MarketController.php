@@ -15,6 +15,7 @@ class MarketController extends Controller
     public function index()
     {
         $markets = Market::orderBy('name', 'asc')->paginate(9);
+        
         return view('markets.index', [
           'title' => 'LIST MARKETS :D',
           'markets' => $markets
@@ -45,6 +46,7 @@ class MarketController extends Controller
         'website' => 'required',
       ]);
       Market::create($request->all());
+
       return redirect('markets');
     }
 
@@ -67,7 +69,10 @@ class MarketController extends Controller
      */
     public function edit(Market $market)
     {
-        //
+      return view('markets.edit', [
+        'title' => 'EDIT MARKETS :D',
+        'market' => $market
+      ]);
     }
 
     /**
@@ -79,7 +84,9 @@ class MarketController extends Controller
      */
     public function update(Request $request, Market $market)
     {
-        //
+      Market::find($market->id)->update($request->all());
+      
+      return redirect('markets');
     }
 
     /**
@@ -90,6 +97,8 @@ class MarketController extends Controller
      */
     public function destroy(Market $market)
     {
-        //
+      Market::find($market->id)->delete();
+
+      return redirect('markets');
     }
 }

@@ -42,6 +42,21 @@
 
       <section class="section">
         <div class="container">
+        
+          @if(count($errors) > 0)
+            @foreach($errors->all() as $error)
+              <article class="message message is-danger">
+                <div class="message-header">
+                  <p>Error :(</p>
+                  <button class="delete" aria-label="delete"></button>
+                </div>
+                <div class="message-body">
+                  {{ $error }}
+                </div>
+              </article>      
+            @endforeach
+          @endif
+
           @yield('content')
         </div>
       </section>
